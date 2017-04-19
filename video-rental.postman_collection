@@ -1,0 +1,42 @@
+{
+	"variables": [],
+	"info": {
+		"name": "video-rental",
+		"_postman_id": "c572bc96-93c2-399a-1602-25bfad34ec81",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "returnFilms",
+			"request": {
+				"url": "http://localhost:8080/254486M/returnFilms",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "returnFilms"
+			},
+			"response": []
+		},
+		{
+			"name": "rentFilms",
+			"request": {
+				"url": "http://localhost:8080/254486M/rentFilms",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"id\": 1,\n    \"name\": \"Dukes of Hazzard\",\n    \"filmType\": \"REGULAR\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"The Fate of the Furious\",\n    \"filmType\": \"NEW\"\n  }\n]"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
