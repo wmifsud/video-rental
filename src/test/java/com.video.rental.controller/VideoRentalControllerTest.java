@@ -20,9 +20,7 @@ import org.springframework.web.context.WebApplicationContext;
 import java.util.Collections;
 import java.util.HashSet;
 
-import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -41,11 +39,9 @@ public class VideoRentalControllerTest {
     @Autowired
     private FilmRepository filmRepository;
     @Autowired
-    public WebApplicationContext wac;
+    private WebApplicationContext wac;
 
-    public MockMvc mockMvc;
-
-    private static final String RETRIEVE_ALL_FILMS_URL = "/retrieveAllFilms";
+    private MockMvc mockMvc;
 
     private static final String RENT_FILMS_URL = "/{idCard}/rentFilms/{days}";
 
@@ -58,6 +54,7 @@ public class VideoRentalControllerTest {
 
     @Before
     public void setup() {
+
         dbConfig.populateCustomers();
         dbConfig.populateFilms();
 
@@ -65,40 +62,12 @@ public class VideoRentalControllerTest {
     }
 
     /**
-     * Tests successful retrieval of all films in the database.
-     * @throws Exception {@link MockMvc} can throw exception.
-     */
-    @Test
-    public void retrieveAllFilms() throws Exception {
-
-        mockMvc.perform(get(RETRIEVE_ALL_FILMS_URL)
-                .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print())
-                    .andExpect(status().isOk())
-                    .andExpect(jsonPath("$", hasSize(filmRepository.findAll().size())));
-    }
-
-    /**
-     * Tests that a film rental is successful and asserts that correct rental price is returned.
-     * @throws Exception {@link MockMvc} can throw exception.
-     */
-    @Test
-    public void rentFilm() throws Exception {
-        Film film = filmRepository.findOne(1L);
-        mockMvc.perform(post(RENT_FILMS_URL, "123456M", 10)
-                                .content(convertToJsonString(new HashSet<>(Collections.singletonList(film))))
-                                .contentType(MediaType.APPLICATION_JSON))
-               .andDo(print())
-               .andExpect(status().isOk())
-               .andExpect(jsonPath("$", is( new Long(180).intValue())));
-    }
-
-    /**
      * Tests that a bad request is returned since film is already rented out.
      * @throws Exception {@link MockMvc} can throw exception.
      */
     @Test
-    public void setStockTestIncorrectMaxValue() throws Exception {
+    public void rentFilmAlreadyRented() throws Exception {
+
         Film film = filmRepository.findOne(1L);
         mockMvc.perform(post(RENT_FILMS_URL, "123456M", 10)
                                 .content(convertToJsonString(new HashSet<>(Collections.singletonList(film))))
