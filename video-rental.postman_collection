@@ -1,84 +1,112 @@
 {
-	"variables": [],
-	"info": {
-		"name": "video-rental",
-		"_postman_id": "c572bc96-93c2-399a-1602-25bfad34ec81",
-		"description": "",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
-	},
-	"item": [
+	"id": "32de9a5d-8629-22cc-d6da-4a7b1554a7c8",
+	"name": "video-rental",
+	"description": "",
+	"order": [
+		"bc94b4b6-2565-7648-cd60-f0eedf62f57a",
+		"3bad76c5-4c0f-c2e5-3a49-0a25ba5c8cd3",
+		"dd81bcbe-8574-01d3-832d-86c5d70fb157",
+		"f67fc3e0-900d-31d6-7aa4-a70091f16fb7",
+		"2cc8c8ff-5f8d-9ea8-dcbe-bab3a8e2744d",
+		"681b7fa2-edd9-0d8e-1e6d-444ef0c2e96b"
+	],
+	"folders": [],
+	"timestamp": 0,
+	"owner": "1769062",
+	"public": false,
+	"requests": [
 		{
-			"name": "returnFilms",
-			"request": {
-				"url": "http://localhost:8080/254486M/returnFilms",
-				"method": "GET",
-				"header": [],
-				"body": {},
-				"description": "returnFilms"
-			},
-			"response": []
-		},
-		{
-			"name": "rentFilms",
-			"request": {
-				"url": "http://localhost:8080/254486M/rentFilms",
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "[\n  {\n    \"id\": 1,\n    \"name\": \"Dukes of Hazzard\",\n    \"filmType\": \"REGULAR\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"The Fate of the Furious\",\n    \"filmType\": \"NEW\"\n  }\n]"
-				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "retrieveAvailableFilms",
-			"request": {
-				"url": "http://localhost:8080/video-rental/retrieveAvailableFilms",
-				"method": "GET",
-				"header": [],
-				"body": {},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "retrieveAllFilms",
-			"request": {
-				"url": "http://localhost:8080/video-rental/retrieveAllFilms",
-				"method": "GET",
-				"header": [],
-				"body": {},
-				"description": ""
-			},
-			"response": []
-		},
-		{
+			"id": "2cc8c8ff-5f8d-9ea8-dcbe-bab3a8e2744d",
 			"name": "calculateRent",
-			"request": {
-				"url": "http://localhost:8080/video-rental/calculateRent/10",
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "[\n  {\n    \"id\": 1,\n    \"name\": \"Dukes of Hazzard\",\n    \"filmType\": \"OLD\",\n    \"availableForRent\": true\n  },\n  {\n    \"id\": 3,\n    \"name\": \"The Avengers\",\n    \"filmType\": \"REGULAR\",\n    \"availableForRent\": true\n  },\n  {\n    \"id\": 2,\n    \"name\": \"The Fate of the Furious\",\n    \"filmType\": \"NEW\",\n    \"availableForRent\": true\n  }\n]"
-				},
-				"description": ""
-			},
-			"response": []
+			"description": "",
+			"collectionId": "32de9a5d-8629-22cc-d6da-4a7b1554a7c8",
+			"method": "POST",
+			"headers": "Content-Type: application/json",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "[\n  {\n    \"id\": 1,\n    \"name\": \"Dukes of Hazzard\",\n    \"filmType\": \"OLD\",\n    \"availableForRent\": true\n  },\n  {\n    \"id\": 3,\n    \"name\": \"The Avengers\",\n    \"filmType\": \"REGULAR\",\n    \"availableForRent\": true\n  },\n  {\n    \"id\": 2,\n    \"name\": \"The Fate of the Furious\",\n    \"filmType\": \"NEW\",\n    \"availableForRent\": true\n  }\n]",
+			"url": "http://localhost:8080/video-rental/calculateRent/10",
+			"responses": []
+		},
+		{
+			"id": "3bad76c5-4c0f-c2e5-3a49-0a25ba5c8cd3",
+			"headers": "Content-Type: application/json\n",
+			"url": "http://localhost:8080/video-rental/123456M/rentFilms/10",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1492685871536,
+			"name": "rentFilms",
+			"description": "",
+			"collectionId": "32de9a5d-8629-22cc-d6da-4a7b1554a7c8",
+			"responses": [],
+			"rawModeData": "[\n  {\n    \"id\": 1,\n    \"name\": \"Dukes of Hazzard\",\n    \"filmType\": \"REGULAR\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"The Fate of the Furious\",\n    \"filmType\": \"NEW\"\n  }\n]"
+		},
+		{
+			"id": "681b7fa2-edd9-0d8e-1e6d-444ef0c2e96b",
+			"headers": "",
+			"url": "http://localhost:8080/video-rental/retrieveAllCustomers",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1492680365415,
+			"name": "retrieveAllCustomers",
+			"description": "",
+			"collectionId": "32de9a5d-8629-22cc-d6da-4a7b1554a7c8",
+			"responses": []
+		},
+		{
+			"id": "bc94b4b6-2565-7648-cd60-f0eedf62f57a",
+			"headers": "Content-Type: application/json\n",
+			"url": "http://localhost:8080/video-rental/654321M/returnFilms",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1492688678574,
+			"name": "returnFilms",
+			"description": "returnFilms",
+			"collectionId": "32de9a5d-8629-22cc-d6da-4a7b1554a7c8",
+			"responses": [],
+			"rawModeData": "[\n  {\n    \"id\": 1,\n    \"name\": \"Batman\",\n    \"filmType\": \"REGULAR\"\n  }\n]"
+		},
+		{
+			"id": "dd81bcbe-8574-01d3-832d-86c5d70fb157",
+			"name": "retrieveAvailableFilms",
+			"description": "",
+			"collectionId": "32de9a5d-8629-22cc-d6da-4a7b1554a7c8",
+			"method": "GET",
+			"headers": "",
+			"data": [],
+			"rawModeData": "",
+			"url": "http://localhost:8080/video-rental/retrieveAvailableFilms",
+			"responses": []
+		},
+		{
+			"id": "f67fc3e0-900d-31d6-7aa4-a70091f16fb7",
+			"name": "retrieveAllFilms",
+			"description": "",
+			"collectionId": "32de9a5d-8629-22cc-d6da-4a7b1554a7c8",
+			"method": "GET",
+			"headers": "",
+			"data": [],
+			"rawModeData": "",
+			"url": "http://localhost:8080/video-rental/retrieveAllFilms",
+			"responses": []
 		}
 	]
 }
