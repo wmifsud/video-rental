@@ -10,8 +10,13 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 /**
  * Created by waylon on 06/04/2017.
+ *
+ * Class required to pre-populate database on application
+ * startup since database being used is an in-memory one.
  */
 @Component
 public class DbConfig implements ApplicationRunner {
@@ -23,11 +28,11 @@ public class DbConfig implements ApplicationRunner {
 
     public void run(ApplicationArguments args) throws Exception {
 
-        populateFilms();
         populateCustomers();
+        populateFilms();
     }
 
-    private void populateCustomers() {
+    public void populateCustomers() {
 
         Customer customer = new Customer();
         customer.setIdCard("123456M");
@@ -42,24 +47,29 @@ public class DbConfig implements ApplicationRunner {
         customerRepository.save(customer);
     }
 
-    private void populateFilms() {
+    public void populateFilms() {
 
         Film film = new Film();
         film.setName("Dukes of Hazzard");
-        film.setAvailableForRent(true);
         film.setFilmType(FilmType.OLD);
         filmRepository.save(film);
 
         film = new Film();
         film.setName("The Fate of the Furious");
-        film.setAvailableForRent(true);
         film.setFilmType(FilmType.NEW);
         filmRepository.save(film);
 
         film = new Film();
         film.setName("The Avengers");
-        film.setAvailableForRent(true);
         film.setFilmType(FilmType.REGULAR);
+        filmRepository.save(film);
+
+        film = new Film();
+        film.setName("Batman");
+        film.setFilmType(FilmType.REGULAR);
+        film.setDaysRentedFor(2);
+        film.setCustomer(customerRepository.findByIdCard("654321M"));
+        film.setRentedOn(LocalDateTime.now().minusDays(5));
         filmRepository.save(film);
     }
 }

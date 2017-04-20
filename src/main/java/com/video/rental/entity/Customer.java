@@ -25,7 +25,7 @@ public class Customer {
     @NotNull
     @NotEmpty
     private String surname;
-    private long bonusPoints;
+    private int bonusPoints;
 
     public Long getId() {
         return id;
@@ -59,11 +59,14 @@ public class Customer {
         this.surname = surname;
     }
 
-    public long getBonusPoints() {
+    public int getBonusPoints()
+    {
         return bonusPoints;
     }
 
-    public void setBonusPoints(long bonusPoints) {
+    public void setBonusPoints(int bonusPoints)
+    {
         this.bonusPoints = bonusPoints;
     }
+
 }

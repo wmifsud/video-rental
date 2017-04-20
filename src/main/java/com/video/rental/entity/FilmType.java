@@ -7,21 +7,29 @@ import java.math.BigDecimal;
  */
 public enum FilmType {
 
-    NEW(new BigDecimal(40), 0),
-    REGULAR(new BigDecimal(30), 3),
-    OLD(new BigDecimal(30), 5);
+    NEW(new BigDecimal(40), 2, 0),
+    REGULAR(new BigDecimal(30), 1, 3),
+    OLD(new BigDecimal(30), 1, 5);
 
     private BigDecimal price;
+    private Integer bonusPoints;
     private Integer discountDays;
 
-    FilmType(BigDecimal price, Integer discountDays) {
 
-        this.discountDays = discountDays;
+    FilmType(BigDecimal price, Integer bonusPoints, Integer discountDays) {
+
         this.price = price;
+        this.bonusPoints = bonusPoints;
+        this.discountDays = discountDays;
     }
 
     public BigDecimal getPrice() {
         return price;
+    }
+
+    public Integer getBonusPoints()
+    {
+        return bonusPoints;
     }
 
     public Integer getDiscountDays() {
