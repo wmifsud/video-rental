@@ -37,5 +37,3 @@ FUTURE CONSIDERATIONS.
     and have proper specific exception handling instead of throwing Runtime exceptions.
     
     Ability to create new customers and create new films through REST API.
-
-Please include a README in any format about decisions you made along the way, what you focused on, what you didn't focus on and why, as well as how to run and use the program.
