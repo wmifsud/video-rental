@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration scan="false" debug="false">
+    <jmxConfigurator/>
+    <appender name="video" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>logs/video/video-rental.log</File>
+        <encoder>
+            <pattern>%level: %date [%thread] [%file] %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/video/video-rental.%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d [%t] %p - %m %n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.video" level="INFO">
+        <appender-ref ref="video"/>
+    </logger>
+
+</configuration>

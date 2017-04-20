@@ -15,6 +15,7 @@ public class Film {
     private Long id;
     private String name;
     private FilmType filmType;
+    private boolean availableForRent;
 
     public Long getId() {
         return id;
@@ -38,5 +39,13 @@ public class Film {
 
     public void setFilmType(FilmType filmType) {
         this.filmType = filmType;
+    }
+
+    public boolean isAvailableForRent() {
+        return availableForRent;
+    }
+
+    public void setAvailableForRent(boolean availableForRent) {
+        this.availableForRent = availableForRent;
     }
 }

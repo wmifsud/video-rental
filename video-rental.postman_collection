@@ -37,6 +37,48 @@
 				"description": ""
 			},
 			"response": []
+		},
+		{
+			"name": "retrieveAvailableFilms",
+			"request": {
+				"url": "http://localhost:8080/video-rental/retrieveAvailableFilms",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "retrieveAllFilms",
+			"request": {
+				"url": "http://localhost:8080/video-rental/retrieveAllFilms",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "calculateRent",
+			"request": {
+				"url": "http://localhost:8080/video-rental/calculateRent/10",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"id\": 1,\n    \"name\": \"Dukes of Hazzard\",\n    \"filmType\": \"OLD\",\n    \"availableForRent\": true\n  },\n  {\n    \"id\": 3,\n    \"name\": \"The Avengers\",\n    \"filmType\": \"REGULAR\",\n    \"availableForRent\": true\n  },\n  {\n    \"id\": 2,\n    \"name\": \"The Fate of the Furious\",\n    \"filmType\": \"NEW\",\n    \"availableForRent\": true\n  }\n]"
+				},
+				"description": ""
+			},
+			"response": []
 		}
 	]
 }
